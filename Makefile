@@ -7,7 +7,7 @@ build: ## Build the containers
 	docker build -t employees .
 
 up: ## Start container
-	docker run --rm --detach --publish 3306:3306 --name=employees employees
+	docker run --rm --publish 3306:3306 --publish 80:80 --name=employees employees
 
 down: ## Stop container
 	docker stop employees

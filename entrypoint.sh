@@ -14,10 +14,10 @@ chown -R mysql:mysql "$DATADIR"
 chown -R mysql:root "$SOCKETDIR"
 > /var/log/mysql/error.log
 
-echo '[Entrypoint] Initializing database.'
+echo '[Entrypoint] Initializing database...'
 mysqld --initialize-insecure \
        --datadir="$DATADIR"
-echo '[Entrypoint] Database initialized.'
+echo '[Entrypoint] Database initialized!'
 
 mysqld --daemonize --skip-networking --socket="$SOCKET"
 
@@ -40,12 +40,16 @@ echo "[Entrypoint] Populate TimeZone..."
 # With "( .. ) 2> /dev/null" suppress any std[out/err].
 ( mysql_tzinfo_to_sql /usr/share/zoneinfo | "${CMD[@]}" --force ) 2> /dev/null
 
-echo "[Entrypoint] Create users."
+echo "[Entrypoint] Create databases & users..."
 "${CMD[@]}" <<-EOSQL
 DROP DATABASE IF EXISTS test;
 CREATE DATABASE IF NOT EXISTS employees;
 GRANT ALL PRIVILEGES ON *.* TO 'employees'@'%' IDENTIFIED BY 'employees';
 GRANT ALL PRIVILEGES ON *.* TO 'employees'@'localhost' IDENTIFIED BY 'employees';
+CREATE DATABASE IF NOT EXISTS phpmyadmin;
+GRANT ALL PRIVILEGES ON *.* TO 'pma'@'%' IDENTIFIED BY 'pmapass';
+GRANT ALL PRIVILEGES ON *.* TO 'pma'@'localhost' IDENTIFIED BY 'pmapass';
+GRANT ALL PRIVILEGES ON *.* TO 'pma'@'127.0.0.1' IDENTIFIED BY 'pmapass';
 FLUSH PRIVILEGES;
 EOSQL
 
@@ -63,7 +67,13 @@ curl --silent https://raw.githubusercontent.com/datacharmer/test_db/master/load_
 curl --silent https://raw.githubusercontent.com/datacharmer/test_db/master/show_elapsed.sql --output show_elapsed.sql
 ("${CMD[@]}" employees < employees.sql) > /dev/null 2>&1
 
+echo "[Entrypoint] Restoring phpmyadmin database..."
+("${CMD[@]}" < /usr/share/phpmyadmin/sql/create_tables.sql) > /dev/null 2>&1
+
 mysqladmin shutdown -uroot --socket="$SOCKET"
+
+echo '[Entrypoint] Start Apache 2'
+service apache2 start
 
 echo '[Entrypoint] MySQL init process done. Ready for start up.'
 mysqld
