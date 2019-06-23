@@ -1,6 +1,11 @@
 # MySQL Basic SQL Training
 
-This project help student to have immediate example environment to training the course. This image provides a ready to use example database for the docker container. It contains MySQL 5.7 on ubuntu and the employees database.
+This project help student to have immediate example environment to training the course. This image provides a ready to use example database for the docker container. It contains MySQL 5.7 on ubuntu and a couple of databases:
+
+## Example Databases
+
+- [Employees](https://dev.mysql.com/doc/employee/en/)
+- [Sakila](https://dev.mysql.com/doc/sakila/en/)
 
 ## Usage
 
@@ -20,11 +25,11 @@ $ docker-compose down
 
 ### phpMyAdmin
 
-Open your web browser and navigate to [http://127.0.0.1](http://127.0.0.1). You should see the phpmyadmin login page. Log in to the phmyadmin interface either using MySQL **root** user and **admin** password.
+Open your web browser and navigate to [http://127.0.0.1:8080](http://127.0.0.1:8080). You should see the phpmyadmin login page. Log in to the phmyadmin interface either using MySQL **root** user and **admin** password.
 
 ## Appreciation
 
-- Thanks by Giuseppe Maxia (datacharmer) to build [sample database](https://github.com/datacharmer/test_db).
+- Thanks by Giuseppe Maxia (datacharmer) to build [sample database](https://github.com/datacharmer/test_db) for MySQL.
 
 ## Issues
 

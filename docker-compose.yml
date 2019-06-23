@@ -10,7 +10,7 @@ services:
     - mysql-basic-sql-training
     volumes:
     - ./employees.sql.gz:/docker-entrypoint-initdb.d/employees.sql.gz
-
+    - ./sakila.sql.gz:/docker-entrypoint-initdb.d/sakila.sql.gz
   myphpadmin:
     image: phpmyadmin/phpmyadmin
     links:
