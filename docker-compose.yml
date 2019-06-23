@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+    - 3306:3306
+    networks:
+    - mysql-basic-sql-training
+    volumes:
+    - ./employees.sql.gz:/docker-entrypoint-initdb.d/employees.sql.gz
+
+  myphpadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+    - mysql
+    ports:
+    - 8080:80
+    environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOST=mysql
+    networks:
+    - mysql-basic-sql-training
+    depends_on:
+    - mysql
+
+networks:
+    mysql-basic-sql-training:
+      driver: bridge

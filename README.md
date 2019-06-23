@@ -9,13 +9,18 @@ Execute the follow comands:
 ```
 $ git clone git@github.com:swapbyt3s/MySQLBasicSQLTraining.git
 $ cd MySQLBasicTraining/
-$ make build
-$ make up
+$ docker-compose up
+```
+
+When you are finished, run the follow command to clear environment:
+
+```
+$ docker-compose down
 ```
 
 ### phpMyAdmin
 
-Open your web browser and navigate to [http://127.0.0.1/phpmyadmin](http://127.0.0.1/phpmyadmin). You should see the phpmyadmin login page. Log in to the phmyadmin interface either using MySQL **employees** user and **employees** password.
+Open your web browser and navigate to [http://127.0.0.1](http://127.0.0.1). You should see the phpmyadmin login page. Log in to the phmyadmin interface either using MySQL **root** user and **admin** password.
 
 ## Appreciation
 
