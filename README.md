@@ -27,6 +27,14 @@ $ docker-compose down
 
 Open your web browser and navigate to [http://127.0.0.1:8080](http://127.0.0.1:8080). You should see the phpmyadmin login page. Log in to the phmyadmin interface either using MySQL **root** user and **admin** password.
 
+### Terminal
+
+Maybe do you like enter via Terminal:
+
+```
+docker exec -i -t mysqlbasicsqltraining_mysql_1 /usr/bin/mysql -u root -padmin
+```
+
 ## Appreciation
 
 - Thanks by Giuseppe Maxia (datacharmer) to build [sample database](https://github.com/datacharmer/test_db) for MySQL.
