@@ -1,0 +1,36 @@
+{
+  "title": "Instalación de nuestro entorno de aprendizaje",
+  "description": "Instalación del servidor de MySQL 8.0 en Ubuntu 20.04 LTS e instalación de una base de datos de pruebas.",
+  "difficulty": "Beginner",
+  "time": "5 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Instalar el servidor de MySQL",
+        "text": "step1.md"
+      },
+      {
+        "title": "Verificar instalación",
+        "text": "step2.md"
+      },
+      {
+        "title": "Entrar al servidor de MySQL",
+        "text": "step3.md"
+      },
+      {
+        "title": "Conocer la versión del servidor de MySQL",
+        "text": "step4.md"
+      },
+      {
+        "title": "Instalar base de datos de pruebas",
+        "text": "step5.md"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu:2004"
+  }
+}

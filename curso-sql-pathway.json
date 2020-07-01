@@ -1,0 +1,16 @@
+{
+  "title": "MySQL Básico",
+  "description": "Cómo hacer consultas básicas sobre la base de datos sakila",
+  "courses": [
+    {
+      "course_id": "curso-sql-install",
+      "title": "Instalación",
+      "description": "Instalación y configuración de nuestro entorno de aprendizaje."
+    },
+    {
+      "course_id": "curso-sql-select",
+      "title": "Recuperando datos",
+      "description": "Usar la sentencia SELECT para recuperar datos, transformarlos, filtrarlos, realizar cálculos, agruparlos y cruzarlos con otras tablas."
+    }
+  ]
+}
