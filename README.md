@@ -1,4 +1,4 @@
-# MySQL Basic SQL Training
+# MySQL Basic Training
 
 This project help student to have immediate example environment to training the course. This image provides a ready to use example database for the docker container. It contains MySQL 5.7 on ubuntu and a couple of databases:
 
